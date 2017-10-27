@@ -1,37 +1,6 @@
-
-stock IsPlayerLoged(playerid)
-{
-  return PlayerData[playerid][pLogged];
-}
-
-stock IsPlayerSpawned(playerid)
-{
-  return PlayerData[playerid][pSpawn];
-}
-
-stock InitPlayer(playerid)
-{
-  PlayerData[playerid][pLogged] = true;
-  return 1;
-}
-
-stock InitSpawnPlayer(playerid)
-{
-  CreatePlayerFile(playerid);
-  return 1;
-}
-
-stock UnloadSpawnedPlayer(playerid)
-{
-  DestroyPlayerFile(playerid);
-  PlayerData[playerid][pLogged] = false;
-  return 1;
-}
-
-stock ResetPlayerVar(playerid)
-{
-  PlayerData[playerid][pLogged] = false;
-  PlayerData[playerid][pSpawn] = false;
-  PlayerData[playerid][pInPerso] = false;
-  return 1;
-}
+#define IsPlayerLoged(%0) PlayerData[%0][pLogged]
+#define IsPlayerSpawned(%0) PlayerData[%0][pSpawn]
+#define InitPlayer(%0) PlayerData[%0][pLogged] = true
+#define InitSpawnPlayer(%0) CreatePlayerFile(%0)
+#define UnloadSpawnedPlayer(%0) DestroyPlayerFile(%0), PlayerData[%0][pLogged] = false
+#define ResetPlayerVar(%0) PlayerData[%0] = ClonePlayerData[0]
