@@ -36,7 +36,9 @@ enum _adata
   PlayerText3D:pActorText2,
   PlayerText3D:pActorText3
 }
-stock PlayerData[MAX_PLAYERS][_adata];
+stock 
+    PlayerData[MAX_PLAYERS][_adata],
+    ClonePlayerData[1][_adata];
 
 enum _pData
 {
